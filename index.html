@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>➕➖✖️➗</title>
+</head>
+
+<body>
+    <div id="calculator-container">
+        <div class="row">
+            <input type="text" id="screen" name="screen" required minlength="4" maxlength="8" size="20" value="0" />
+        </div>
+        <div class="row">
+            <button class="calculator-button">1</button>
+            <button class="calculator-button">2</button>
+            <button class="calculator-button">3</button>
+            <button class="calculator-button">+</button>
+
+        </div>
+        <div class="row">
+            <button class="calculator-button">4</button>
+            <button class="calculator-button">5</button>
+            <button class="calculator-button">6</button>
+            <button class="calculator-button">-</button>
+
+        </div>
+        <div class="row">
+            <button class="calculator-button">7</button>
+            <button class="calculator-button">8</button>
+            <button class="calculator-button">9</button>
+            <button class="calculator-button">*</button>
+        </div>
+        <div class="row">
+            <button class="calculator-button">CL</button>
+            <button class="calculator-button">0</button>
+            <button class="calculator-button">=</button>
+            <button class="calculator-button">/</button>
+
+
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #calculator-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: black;
+        border-radius: 8px;
+        margin: 0 auto;
+        width: 250px;
+        height: 320px;
+        padding: 10px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        flex: 1 1 auto;
+        gap: 5px;
+        width: 100%;
+    }
+
+    input {
+        flex-grow: 2;
+        background-color: #333;
+        padding-right: 10px;
+        color: white;
+        font-size: 24px;
+        text-align: right;
+        border: none;
+        width: 100%;
+        border-radius: 15px;
+        height: 35px;
+        margin: 5px;
+    }
+
+    .calculator-button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+
+</html>
+
+<!-- 
+TODO:
+* center button texts (equation buttons look off) 
+-->
