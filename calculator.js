@@ -11,7 +11,9 @@ function multiply(...numbers) {
 }
 
 function divide(...numbers) {
-  return numbers.reduce((quotiant, num) => quotiant / num);
+  return numbers.reduce((quotiant, num) => {
+    return num === 0 ? 'ERROR' : quotiant / num;
+  });
 }
 
 function operate() {
@@ -25,7 +27,6 @@ function operate() {
       const clickedBtnText = e.target.innerText;
 
       if (clickedBtnText === 'CL') {
-        console.log('CL WAS PRESSED');
         justCalculated = false;
         calculatorScrn = '';
         screen.value = '0';
