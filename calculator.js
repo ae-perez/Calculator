@@ -18,17 +18,37 @@ function operate() {
   const btnPressed = document.getElementsByClassName('calculator-button');
   const screen = document.getElementById('screen');
   let calculatorScrn = '';
+  let justCalculated = false;
 
   for (let i = 0; i < btnPressed.length; i++) {
-    btnPressed[i].addEventListener('click', function (e) {
-      if (btnPressed[i].innerText != '=' && btnPressed[i].innerText != 'CL') {
-        calculatorScrn += btnPressed[i].innerText;
+    btnPressed[i].addEventListener('click', (e) => {
+      const clickedBtnText = e.target.innerText;
+
+      if (clickedBtnText === 'CL') {
+        console.log('CL WAS PRESSED');
+        justCalculated = false;
+        calculatorScrn = '';
+        screen.value = '0';
+        return; // stop here after clearing
+      }
+
+      if (justCalculated) {
+        if (/[\+\-\*\/]/.test(clickedBtnText)) {
+          justCalculated = false;
+        } else {
+          return;
+        }
+      }
+
+      if (clickedBtnText != '=') {
+        calculatorScrn += clickedBtnText;
         screen.value = calculatorScrn;
-      } else if (btnPressed[i].innerText == '=') {
+      } else {
         let nums = calculatorScrn.split(/[\+\-\*\/]/);
         let operator = calculatorScrn.match(/[\+\-\*\/]/g);
         let result = 0;
 
+        justCalculated = true;
         nums = nums.map((num) => Number(num));
 
         switch (operator[0]) {
@@ -46,9 +66,6 @@ function operate() {
             break;
         }
         calculatorScrn = result;
-        screen.value = calculatorScrn;
-      } else if (btnPressed[i].innerText == 'CL') {
-        calculatorScrn = 0;
         screen.value = calculatorScrn;
       }
     });
